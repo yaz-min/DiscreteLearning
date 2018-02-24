@@ -1,0 +1,24 @@
+ Herramientas para aprender:
+
+- Heroku pagina web
+- Git
+- Dlv wrapper java (JDLV)
+- GitKraken
+
+Equipos: 
+
+Director de proyecto: Mauricio
+Diseño: Camila
+Audivisual: Noé 
+
+Plan de desarrollo:
+
+Fase 0:
+- Preparación de bases para poder hacer el proyecto
+
+Fase 1:
+- Definir tema y metodología de las clases.
+- Crear material necesario.
+
+Fase 2:
+- Iniciar el desarrollo del programa...
