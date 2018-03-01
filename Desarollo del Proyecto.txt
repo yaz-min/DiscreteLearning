@@ -2,7 +2,7 @@
 
 - Heroku pagina web
 - Git
-- Dlv wrapper java (JDLV)
+- DlVK
 - GitKraken
 
 Equipos: 
@@ -18,6 +18,7 @@ Fase 0:
 
 Fase 1:
 - Definir tema y metodología de las clases.
+- Hacer temario.
 - Crear material necesario.
 
 Fase 2:
