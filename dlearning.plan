@@ -1,0 +1,11 @@
+fluents:
+
+        subject_taught(S) requires subject(S).
+        subject_understood(S) requires subject(S).
+
+
+actions:
+
+        exemplify(S) requires subject(S).
+        evaluate(S) requires subject(S), subject_understood(S).
+        select_subject(S) requires subject(S).
