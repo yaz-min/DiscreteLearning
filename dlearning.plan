@@ -2,10 +2,31 @@ fluents:
 
         subject_taught(S) requires subject(S).
         subject_understood(S) requires subject(S).
+        exam_done(E) requires exam(E).
+        next_subject(S) requires subject(S).
+        approved(T,S) requires student(T), subject(S).
+
+
+
 
 
 actions:
+        % Kinesthetic, Visual, Auditory forms
+        change_form(F1,F2) requires form(F1), form(F2).
 
-        exemplify(S) requires subject(S).
-        evaluate(S) requires subject(S), subject_understood(S).
+        do_exam(E) requires exam(E).
+        teach(S, T) requires subject(S), student(T).
+        exemplify(S, J) requires subject(S), example(J).
+        evaluate(S,E) requires subject(S), exam(E).
         select_subject(S) requires subject(S).
+        ask_student(T, S) requires student(T), subject(S).
+        approve(T,S) requires student(T), subject(S).
+
+always:
+
+        caused subject_taught(S) after teach(S).
+        caused exam_done(E) after do_exam(E).
+        caused approved(T,S) after approve(T,S).
+        executable approve(T,S) if subject_taught(S), subject_understood(S),
+          exam_done(E).
+        caused next_subject(S) after approved(T,S).  
