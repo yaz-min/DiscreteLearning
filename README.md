@@ -1,8 +1,8 @@
-- [ ]Temario
+- [ ] Temario
 
 ###  Página
 https://mauaraujo.github.io/DiscreteLearning/
 
-- [  ] Autómata
+- [ ] Autómata
 
-- [ ]Planning
+- [ ] Planning
