@@ -8,7 +8,3 @@
 - [Temario]()
 - [Plan](https://raw.githubusercontent.com/MauAraujo/DiscreteLearning/master/dlearning.plan)
 - [Autómata]()
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
