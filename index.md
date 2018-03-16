@@ -5,6 +5,6 @@
 - José Mauricio Araujo García
 
 ## Contenido
-- [Temario](temario.md)
+- [Temario](https://mauaraujo.github.io/DiscreteLearning/temario)
 - [Plan](https://raw.githubusercontent.com/MauAraujo/DiscreteLearning/master/dlearning.plan)
 - [Autómata]()
