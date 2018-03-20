@@ -1,14 +1,18 @@
-## Integrantes
-* Noé Osorio Hernández
-* Ingrid Camila Elías Magaña
-* Rocío Yazmín Toledano Bernabé
-* José Mauricio Araujo García
 
-### Temario
 
-###  Página
 https://mauaraujo.github.io/DiscreteLearning/
 
-### Autómata
+### Temario
+  - [x] Hacer temario en texto
 
-### Planning
+### Página
+  - [x] Crear página
+  - [ ] Diseñar según la mascota y paleta de colores
+  
+### Autómata
+- [ ] Hacer Autómata
+
+### Java
+  - [x] Esqueleto del programa
+  - [x] Java y DLV se comunican
+  - [ ] Hacer que Java lea y escriba documentos de DLV
