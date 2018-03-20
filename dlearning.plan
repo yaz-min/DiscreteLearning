@@ -1,54 +1,27 @@
 fluents:
-        %First, the program teaches a partial subject with a specific method
-        actual_form(F) requires form(F).
-        subject_taught(S) requires subject(S).
-        exemplified(S) requires subject(S).
-        doubt(S) requires subject(S).
-        
-        %After each subject the program applies a small partial quiz
-        quiz_applied(Q) requires quiz(Q).
-        
-        %The student has to approve this quiz in order to know if the program has to change the teaching method
-        quiz_approved (Q)
-        
-        %When the student proves to have undestood all the partial subjects, then the final exam is applied
-        exam_done(E) requires exam(E).
-        approved(S) requires subject(S).
-        subject_understood(S) requires subject(S).
-        next_subject(S) requires subject(S).
-
-
-
-
+      subject_taught(S) requires subject(S).
+      quiz_applied(S) requires subject(S).
+      subject_understood(S) requires subject(S).
 
 actions:
-        select_subject(S) requires subject(S).
         teach(S) requires subject(S).
-        exemplify(S, J) requires subject(S), example(J).
-        ask_student(S) requires subject(S).
-        apply_quiz(Q) requires quiz(Q), subject(S).
-        
-        % Kinesthetic, Visual, Auditory forms
-        change_form(F1,F2) requires form(F1), form(F2).
-
-        do_exam(E) requires exam(E).
-        feedback(F) requires subject(S), -approved(S).
-        
-        approve(S) requires subject(S).
-        report_progress(P). 
+        apply_quiz(S) requires subject(S).
+        understand(S) requires subject(S).
 
 always:
-        
-        caused exemplified(S) after exemplify(S,J).
-        executable apply_quiz if not doubt(S). 
-        caused subject_taught(S) after teach(S).
-        caused exam_done(E) after do_exam(E).
-        caused approved(S) after approve(S).
-        executable approve(S) if subject_taught(S), subject_understood(S),
-          exam_done(E).
-        caused next_subject(S) after approved(T,S).
-        caused quiz_applied(Q) after apply_quiz(Q). 
-        caused actual_form(F) after change_form(F1,F2).
-        executable change_form(F1,F2) if not subject_understood(S).
-        caused subject_understood(S) after quiz_approved(Q).
-        
+      caused subject_taught(S) after teach(S).
+      executable teach(S) if not subject_taught(S).
+      caused quiz_applied(S) after apply_quiz(S).
+      executable apply_quiz(S) if not quiz_applied(S), subject_taught(S).
+      caused subject_understood(S) after understand(S).
+      executable understand(S) if quiz_applied(S).
+
+      inertial subject_taught(S).
+      inertial quiz_applied(S).
+      inertial subject_understood(S).
+
+initially: -subject_taught(basico).
+          -subject_understood(basico).
+          -quiz_applied(S).
+
+goal: subject_understood(basico)? (3)
