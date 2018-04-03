@@ -15,8 +15,8 @@ https://mauaraujo.github.io/DiscreteLearning/
 ### Java
   - [x] Esqueleto del programa
   - [x] Java y DLV se comunican
-  - [ ] Hacer que Java lea y escriba documentos de DLV
+  - [x] Hacer que Java lea y escriba documentos de DLV
   - [x] Java puede ejecutar DLV
   
   ### Interfaz
-  - [ ] Hacer base de la interfaz en Java
+  - [x] Hacer base de la interfaz en Java
