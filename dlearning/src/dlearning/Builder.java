@@ -38,13 +38,13 @@ public class Builder {
     
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        ProcessBuilder builder = new ProcessBuilder("/Users/pamelagarcia/Downloads/dlv.i386-apple-darwin.bin", "-FP", "/Users/pamelagarcia/DLearning/dlearning.dl", "/Users/pamelagarcia/DLearning/dlearning.plan");
+        ProcessBuilder builder = new ProcessBuilder("/Users/pamelagarcia/Downloads/dlv.i386-apple-darwin.bin", "-FP", "/Users/pamelagarcia/DLearning/dlearning.plan", "/Users/pamelagarcia/DLearning/dlearninginit.plan", "/Users/pamelagarcia/DLearning/dlearning.dl");
         builder.redirectErrorStream(true);
         final Process process = builder.start();
         
         PrintWriter input = new PrintWriter(process.getOutputStream()); 
-        input.print("y");
-        input.print("y");
+        input.print("n");
+        input.print("n");
         input.close();
         
         Builder.watch(process);
