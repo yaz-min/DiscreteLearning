@@ -38,7 +38,7 @@ public class Builder {
     
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        ProcessBuilder builder = new ProcessBuilder("/Users/pamelagarcia/Downloads/dlv.i386-apple-darwin.bin", "-FP", "/Users/pamelagarcia/DLearning/dlearning.plan", "/Users/pamelagarcia/DLearning/dlearninginit.plan", "/Users/pamelagarcia/DLearning/dlearning.dl");
+        ProcessBuilder builder = new ProcessBuilder("/Downloads/dlv.i386-apple-darwin.bin", "-FP", "/DLearning/dlearning.plan", "/DLearning/dlearninginit.plan", "/DLearning/dlearning.dl");
         builder.redirectErrorStream(true);
         final Process process = builder.start();
         
