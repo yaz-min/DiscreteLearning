@@ -1,0 +1,6 @@
+
+initially: -subject_taught(basico).
+          -subject_understood(basico).
+          -quiz_applied(S).
+
+goal: subject_understood(basico)? (3)
