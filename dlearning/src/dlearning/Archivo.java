@@ -6,6 +6,7 @@
 package dlearning;
 
 import java.io.*;
+import java.util.*;
 
 /**
  *
@@ -13,7 +14,7 @@ import java.io.*;
  */
 public class Archivo {
    
-    
+    public static ArrayList<String> planning = new ArrayList();
     //name es la ruta del archivo
     public String name;
     //public Scanner file;
@@ -31,7 +32,7 @@ public class Archivo {
     
     public void read(){
         //Abre/crea el archivo lee su contenido y almacena el texto en "content"
-        try{
+         try{
             //content.clear();
             content = "";
             File f = new File(name);
@@ -51,12 +52,51 @@ public class Archivo {
             
         }catch(Exception e){
             System.out.println("Archivo no encontrado");
+}
+        
+    }
+    
+    public void readPlan(){
+        //Lee el plan que esta en un archivo
+        Scanner word;
+        try{
+            //content.clear();
+            int cont = 0;
+            content = "";
+            File f = new File(name);
+            if(!f.exists()){
+                f.createNewFile();
+            }
+            BufferedReader br = new BufferedReader(new FileReader(name));
+            String plan ="";
+            String temp = "";
+            String bfRead;
+            
+            while((bfRead = br.readLine()) != null){
+                plan = bfRead.substring(0, 4);
+                if(cont > 1){
+                    if(plan.equalsIgnoreCase("PLAN"))
+                        temp = temp + bfRead + "\n";
+                }
+                cont++;
+            }
+            
+            content = temp;
+            word = new Scanner(content);
+            while(word.hasNext()){
+                planning.add(word.next());
+            }
+            
+            br.close();
+            
+        }catch(Exception e){
+            System.out.println("Archivo no encontrado");
         }
         
     }
     
     public void write(String word){
-        //La funcion write recibe una cadena la cual la escribe en el archivo, pero no remplaza lo que tenia
+        //La funcion write recibe un archivo y remplaza this.content
         
         
         read();
@@ -79,13 +119,64 @@ public class Archivo {
             
         }catch(Exception e){System.out.println("Archivo no encontrado");}
     }
-  
-   
+    
+    public void write(Archivo from){
+        //La funcion write recibe una cadena la cual la escribe en el archivo, pero no remplaza lo que tenia
+        
+        
+        from.read();
+        try{
+         File f = new File(name);   
+         if(!f.exists()){
+                f.createNewFile();
+            }  
+         FileWriter fr = new FileWriter(f);   
+         BufferedWriter bw = new BufferedWriter(fr);
+         PrintWriter wr = new PrintWriter(bw);
+        
+        
+         
+         wr.write(from.content);
+         
+         wr.close();
+         bw.close();
+            
+            
+        }catch(Exception e){System.out.println("Archivo no encontrado");}
+    }
+    public void writePlan(Archivo from){
+        //La funcion write recibe una cadena la cual la escribe en el archivo, pero no remplaza lo que tenia
+        
+        
+        from.readPlan();
+        try{
+         File f = new File(name);   
+         if(!f.exists()){
+                f.createNewFile();
+            }  
+         FileWriter fr = new FileWriter(f);   
+         BufferedWriter bw = new BufferedWriter(fr);
+         PrintWriter wr = new PrintWriter(bw);
+        
+        
+         
+         wr.write(from.content);
+         
+         wr.close();
+         bw.close();
+            
+            
+        }catch(Exception e){System.out.println("Archivo no encontrado");}
+    }
+ 
     
     public static void main(String[] args){
         Archivo a = new Archivo("ejemplo");
-       a.write("Plan: enseñar(S), preguntar(S)");
-       System.out.println("Leido");
+        Archivo plan = new Archivo("plan_output");
+       //a.write("Plan: enseñar(S), preguntar(S)");
+       a.writePlan(plan);
+       System.out.println("Hecho");
        
     }
+    
 }
