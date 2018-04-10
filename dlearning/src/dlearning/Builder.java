@@ -15,13 +15,14 @@ import java.lang.ProcessBuilder;
  */
 public class Builder {
 
+    public static String result;
     /**
      * @param args the command line arguments
      */
     public static void watch(final Process process) {
     new Thread(){
         public void run() {
-            dlearning.Archivo output = new dlearning.Archivo("plan_output");
+            /*dlearning.Archivo output = new dlearning.Archivo("plan_output");
             BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line = null; 
             try {
@@ -31,24 +32,42 @@ public class Builder {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
+            }*/
+             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            StringBuilder str = new StringBuilder();
+            String line = null;
+            
+            try{
+                while ( (line = reader.readLine()) != null) {
+                str.append(line);
+                str.append(System.getProperty("line.separator"));
+                }
+                String result = str.toString();
+            
+                System.out.println(result);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        }
-    }.start();
-}
-    public static void plan()throws IOException {
+    }
+        
+        }.start();
+    }
+    public static String plan()throws IOException {
       //Mau
         //ProcessBuilder builder = new ProcessBuilder("/Downloads/dlv.i386-apple-darwin.bin", "-FP", "/DLearning/dlearning.plan", "/DLearning/dlearninginit.plan", "/DLearning/dlearning.dl");
         //Noe
-        ProcessBuilder builder = new ProcessBuilder("/Users/noe/Documents/Developing/dlv/dlv.i386-apple-darwin.bin", "-FP", "/Users/noe/Documents/Developing/dlv/dlearning.plan", "/Users/noe/Documents/Developing/dlv/dlearninginit.plan", "/Users/noe/Documents/Developing/dlv/dlearning.dl");
+        ProcessBuilder builder = new ProcessBuilder("/home/mau/Tools/dlv.x86-64-linux-elf-static.bin", "-FP", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearning.plan", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearninginit.plan", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearning.dl");
         builder.redirectErrorStream(true);
         final Process process = builder.start();
         
-        PrintWriter input = new PrintWriter(process.getOutputStream()); 
+        PrintWriter input = new PrintWriter(process.getOutputStream());
         input.print("n");
         input.print("n");
         input.close();
-        
+
         Builder.watch(process);  
+        
+        return result;
     }
     
     public static void main(String[] args) throws IOException {
