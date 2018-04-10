@@ -20,7 +20,16 @@ public class Dlearning {
          s1.setDef("Antes de aprender Relaciones, debes aprender teoria de conjuntos");
          
          s1.teach();
+         try{
+             //This function excecute DLV and the planning
+             Builder.plan();
+         }catch(Exception e){;}
+        Archivo actions = new Archivo("actions");
+        Archivo plan = new Archivo("plan_output");
+        //Archivo planning = new Archivo("plan");
         
+        actions.writePlan(plan);
+       
     }
        
  }

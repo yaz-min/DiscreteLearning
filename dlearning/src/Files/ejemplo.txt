@@ -1,4 +1,0 @@
-Este es un ejemplo de archivo
-Plan: enseñar(S), preguntar(S)
-Plan: enseñar(S), preguntar(S)
-Plan: enseñar(S), preguntar(S)

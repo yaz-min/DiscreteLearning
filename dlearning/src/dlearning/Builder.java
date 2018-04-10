@@ -26,7 +26,7 @@ public class Builder {
             String line = null; 
             try {
                 while ((line = input.readLine()) != null) {
-                    System.out.println(line);
+                    //System.out.println(line);
                     output.write(line);
                 }
             } catch (IOException e) {
@@ -35,10 +35,11 @@ public class Builder {
         }
     }.start();
 }
-    
-    public static void main(String[] args) throws IOException {
-        // TODO code application logic here
-        ProcessBuilder builder = new ProcessBuilder("/Downloads/dlv.i386-apple-darwin.bin", "-FP", "/DLearning/dlearning.plan", "/DLearning/dlearninginit.plan", "/DLearning/dlearning.dl");
+    public static void plan()throws IOException {
+      //Mau
+        //ProcessBuilder builder = new ProcessBuilder("/Downloads/dlv.i386-apple-darwin.bin", "-FP", "/DLearning/dlearning.plan", "/DLearning/dlearninginit.plan", "/DLearning/dlearning.dl");
+        //Noe
+        ProcessBuilder builder = new ProcessBuilder("/Users/noe/Documents/Developing/dlv/dlv.i386-apple-darwin.bin", "-FP", "/Users/noe/Documents/Developing/dlv/dlearning.plan", "/Users/noe/Documents/Developing/dlv/dlearninginit.plan", "/Users/noe/Documents/Developing/dlv/dlearning.dl");
         builder.redirectErrorStream(true);
         final Process process = builder.start();
         
@@ -47,7 +48,25 @@ public class Builder {
         input.print("n");
         input.close();
         
-        Builder.watch(process);
+        Builder.watch(process);  
+    }
+    
+    public static void main(String[] args) throws IOException {
+        // TODO code application logic here
+        //Mau
+        //ProcessBuilder builder = new ProcessBuilder("/Downloads/dlv.i386-apple-darwin.bin", "-FP", "/DLearning/dlearning.plan", "/DLearning/dlearninginit.plan", "/DLearning/dlearning.dl");
+        //Noe
+        /*ProcessBuilder builder = new ProcessBuilder("/Users/noe/Documents/Developing/dlv/dlv.i386-apple-darwin.bin", "-FP", "/Users/noe/Documents/Developing/dlv/dlearning.plan", "/Users/noe/Documents/Developing/dlv/dlearninginit.plan", "/Users/noe/Documents/Developing/dlv/dlearning.dl");
+        builder.redirectErrorStream(true);
+        final Process process = builder.start();
+        
+        PrintWriter input = new PrintWriter(process.getOutputStream()); 
+        input.print("n");
+        input.print("n");
+        input.close();
+        
+        Builder.watch(process);*/
+        plan();
     }
     
 }

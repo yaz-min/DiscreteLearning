@@ -92,7 +92,6 @@ public class Archivo {
                 cont++;
             }
             content = planning;
-            this.write(this.planning);
             br.close();   
         }catch(Exception e){
             System.out.println("File not found");
@@ -159,10 +158,10 @@ public class Archivo {
          BufferedWriter bw = new BufferedWriter(fr);
          PrintWriter wr = new PrintWriter(bw);
         
-        
-         //wr.write(from.planning);
-         this.write(from.planning);
-         
+        this.content = from.planning;
+        this.planning = from.planning;
+        this.write(from.planning);
+        //from.clean();
          wr.close();
          bw.close();
          
@@ -176,18 +175,7 @@ public class Archivo {
          if(!f.exists()){
                 f.createNewFile();
             }  
-         FileWriter fr = new FileWriter(f);   
-         BufferedWriter bw = new BufferedWriter(fr);
-         PrintWriter wr = new PrintWriter(bw);
-        
-        
-         
-         wr.write("");
-         
-         wr.close();
-         bw.close();
-            
-            
+         f.delete();
         }catch(Exception e){System.out.println("Archivo no encontrado");}
     }
     
@@ -195,9 +183,9 @@ public class Archivo {
         Archivo a = new Archivo("ejemplo");
         Archivo plan = new Archivo("plan_output");
        //a.write("Plan: enseñar(S), preguntar(S)");
-       a.writePlan(plan);
-       System.out.println("Hecho");
-       
+      // a.writePlan(plan);
+      // System.out.println("Hecho");
+       a.clean();
     }
     
 }
