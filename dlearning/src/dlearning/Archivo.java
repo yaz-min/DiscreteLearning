@@ -14,13 +14,12 @@ import java.util.*;
  */
 public class Archivo {
    
-    public static ArrayList<String> planning = new ArrayList();
+    //public static ArrayList<String> planning = new ArrayList();
+    
     //name es la ruta del archivo
     public String name;
-    //public Scanner file;
-    //public Formatter archivo;
-    //public ArrayList<String> content = new ArrayList();
     String content;
+    String planning;
     
     
     
@@ -55,7 +54,6 @@ public class Archivo {
 }
         
     }
-    
     public void readPlan(){
         //Lee el plan que esta en un archivo
         Scanner word;
@@ -75,26 +73,32 @@ public class Archivo {
             while((bfRead = br.readLine()) != null){
                 plan = bfRead.substring(0, 4);
                 if(cont > 1){
-                    if(plan.equalsIgnoreCase("PLAN"))
+                    if(plan.equalsIgnoreCase("PLAN")){
                         temp = temp + bfRead + "\n";
+                        break;
+                    }
                 }
                 cont++;
             }
-            
+            cont=0;
             content = temp;
             word = new Scanner(content);
             while(word.hasNext()){
-                planning.add(word.next());
+                if(cont <2){
+                    this.planning = word.next();
+                }
+                else
+                    break;
+                cont++;
             }
-            
-            br.close();
-            
+            content = planning;
+            this.write(this.planning);
+            br.close();   
         }catch(Exception e){
-            System.out.println("Archivo no encontrado");
+            System.out.println("File not found");
         }
         
     }
-    
     public void write(String word){
         //La funcion write recibe un archivo y remplaza this.content
         
@@ -109,8 +113,6 @@ public class Archivo {
          BufferedWriter bw = new BufferedWriter(fr);
          PrintWriter wr = new PrintWriter(bw);
         
-        
-         
          wr.write(content + word);
          
          wr.close();
@@ -118,8 +120,7 @@ public class Archivo {
             
             
         }catch(Exception e){System.out.println("Archivo no encontrado");}
-    }
-    
+    }    
     public void write(Archivo from){
         //La funcion write recibe una cadena la cual la escribe en el archivo, pero no remplaza lo que tenia
         
@@ -159,8 +160,29 @@ public class Archivo {
          PrintWriter wr = new PrintWriter(bw);
         
         
+         //wr.write(from.planning);
+         this.write(from.planning);
          
-         wr.write(from.content);
+         wr.close();
+         bw.close();
+         
+        
+            
+        }catch(Exception e){System.out.println("File not found");}
+    }
+    public void clean(){
+        try{
+         File f = new File(name);   
+         if(!f.exists()){
+                f.createNewFile();
+            }  
+         FileWriter fr = new FileWriter(f);   
+         BufferedWriter bw = new BufferedWriter(fr);
+         PrintWriter wr = new PrintWriter(bw);
+        
+        
+         
+         wr.write("");
          
          wr.close();
          bw.close();
@@ -168,7 +190,6 @@ public class Archivo {
             
         }catch(Exception e){System.out.println("Archivo no encontrado");}
     }
- 
     
     public static void main(String[] args){
         Archivo a = new Archivo("ejemplo");
