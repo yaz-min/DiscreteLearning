@@ -71,8 +71,9 @@ public class Archivo {
             String bfRead;
             
             while((bfRead = br.readLine()) != null){
-                plan = bfRead.substring(0, 4);
-                if(cont > 1){
+                
+                if(cont > 3){
+                    plan = bfRead.substring(0, 4);
                     if(plan.equalsIgnoreCase("PLAN")){
                         temp = temp + bfRead + "\n";
                         break;
@@ -94,7 +95,53 @@ public class Archivo {
             content = planning;
             br.close();   
         }catch(Exception e){
-            System.out.println("File not found");
+            System.out.println("File not found " + e);
+        }
+        
+    }
+    public void Plan(){
+        //Lee el plan que esta en un archivo
+        Scanner word;
+        try{
+            //content.clear();
+            int cont = 0;
+            //content = "";
+            File f = new File(name);
+            if(!f.exists()){
+                f.createNewFile();
+            }
+            BufferedReader br = new BufferedReader(new FileReader(name));
+            String plan ="";
+            String temp = "";
+            String bfRead;
+            
+            while((bfRead = br.readLine()) != null){
+                
+                if(cont > 3){
+                    plan = bfRead.substring(0, 4);
+                    if(plan.equalsIgnoreCase("PLAN")){
+                        temp = temp + bfRead + "\n";
+                        break;
+                    }
+                }
+                cont++;
+            }
+            cont=0;
+            //content = temp;
+            //word = new Scanner(content);
+            word = new Scanner(temp);
+            while(word.hasNext()){
+                if(cont <2){
+                    this.planning = word.next();
+                }
+                else
+                    break;
+                cont++;
+            }
+            //content = planning;
+            br.close();   
+        }catch(Exception e){
+            System.out.println("File not found " + e);
         }
         
     }
@@ -135,7 +182,7 @@ public class Archivo {
          PrintWriter wr = new PrintWriter(bw);
         
         
-         
+         this.content = from.content;
          wr.write(from.content);
          
          wr.close();
@@ -169,6 +216,7 @@ public class Archivo {
             
         }catch(Exception e){System.out.println("File not found");}
     }
+    
     public void clean(){
         try{
          File f = new File(name);   

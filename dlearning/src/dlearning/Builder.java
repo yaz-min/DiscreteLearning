@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -22,8 +22,8 @@ public class Builder {
     public static void watch(final Process process) {
     new Thread(){
         public void run() {
-            /*dlearning.Archivo output = new dlearning.Archivo("plan_output");
-            BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            dlearning.Archivo output = new dlearning.Archivo("plan_output");
+            /*BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line = null; 
             try {
                 while ((line = input.readLine()) != null) {
@@ -42,9 +42,9 @@ public class Builder {
                 str.append(line);
                 str.append(System.getProperty("line.separator"));
                 }
-                String result = str.toString();
-            
-                System.out.println(result);
+                 String result = str.toString();
+                 output.write(result);
+              //System.out.println(result);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -56,7 +56,10 @@ public class Builder {
       //Mau
         //ProcessBuilder builder = new ProcessBuilder("/Downloads/dlv.i386-apple-darwin.bin", "-FP", "/DLearning/dlearning.plan", "/DLearning/dlearninginit.plan", "/DLearning/dlearning.dl");
         //Noe
-        ProcessBuilder builder = new ProcessBuilder("/home/mau/Tools/dlv.x86-64-linux-elf-static.bin", "-FP", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearning.plan", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearninginit.plan", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearning.dl");
+        
+        //Noe Windows
+        ProcessBuilder builder = new ProcessBuilder("/Users/hp/Documents/Developing/dlv.exe", "-FP", "/Users/hp/Documents/Developing/DiscreteLearning/dlearning.plan", "/Users/hp/Documents/Developing/DiscreteLearning/dlearninginit.plan", "/Users/hp/Documents/Developing/DiscreteLearning/dlearning.dl");
+        //ProcessBuilder builder = new ProcessBuilder("/home/mau/Tools/dlv.x86-64-linux-elf-static.bin", "-FP", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearning.plan", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearninginit.plan", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearning.dl");
         builder.redirectErrorStream(true);
         final Process process = builder.start();
         
@@ -66,6 +69,7 @@ public class Builder {
         input.close();
 
         Builder.watch(process);  
+        
         
         return result;
     }
