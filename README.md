@@ -13,13 +13,14 @@ https://mauaraujo.github.io/DiscreteLearning/
 ### Autómata
 - [x] Hacer Autómata
 - [x] Planning inicial
-- [ ] Adaptar el planning al automata o viceversa
+- [x] Adaptar el planning al automata o viceversa
 
 ### Java
   - [x] Esqueleto del programa
   - [x] Java y DLV se comunican
   - [x] Hacer que Java lea y escriba documentos de DLV
   - [x] Java puede ejecutar DLV
+  - [ ] DLV en Android
   - [ ] Archivos con contenido de los temas
   
   ### Interfaz
