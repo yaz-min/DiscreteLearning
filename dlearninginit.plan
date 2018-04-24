@@ -1,6 +1,11 @@
+initially:
+      -subtema_ensenado(S).
+      -sabe_subtema(S).
+      -esta_en_asesorias.
+      necesita_asesorias(primero).
+      %-sabe_subtema(primero).
+      %-sabe_subtema(segundo).
 
-initially: -subject_taught(basico).
-          -subject_understood(basico).
-          -quiz_applied(S).
-
-goal: subject_understood(basico)? (3)
+%securePlan.
+noConcurrency.
+goal: sabe_subtema(S)? (2)
