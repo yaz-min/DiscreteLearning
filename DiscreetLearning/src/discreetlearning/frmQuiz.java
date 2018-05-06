@@ -137,7 +137,7 @@ public class frmQuiz extends javax.swing.JFrame {
                 .addComponent(jButton7)
                 .addGap(37, 37, 37)
                 .addComponent(jButton5)
-                .addGap(33, 33, 33)
+                .addGap(47, 47, 47)
                 .addComponent(jButton6)
                 .addContainerGap(78, Short.MAX_VALUE))
         );

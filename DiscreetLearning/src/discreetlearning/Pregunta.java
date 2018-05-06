@@ -1,4 +1,4 @@
-package discreetlearning;
+package discreetlearning;;
 
 /**
  * @(#)Pregunta.java
@@ -10,14 +10,15 @@ package discreetlearning;
 
 import java.io.*;
 public class Pregunta implements Serializable {
+        
 	String question;
+        //It has 4 answers
 	String[] answer=new String[4];
+        //but only one is correct
 	int correct;
 
     public Pregunta(String question, String resp1, String resp2, String resp3, String resp4, int correct) {
     	
-        
-        
         this.question=question;
     	this.answer[0]=resp1;
     	this.answer[1]=resp2;
