@@ -43,19 +43,19 @@ public class frmQuiz extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.user=user;
         
-        //progreso = new Progreso(user);
+        progreso = new Progreso(user);
         estado = new String[10];
         respuesta = new String[10];
-        //saved = new ArrayList<Progreso>();
+        saved = new ArrayList<Progreso>();
         
-        //for(int i =0; i<Cuestionario.preguntas10.size();i++){
-        //    cuestionario[i]=Cuestionario.preguntas10.get(i);
-            
-        }
         
-        /*Cuestionario.abrirArch("Cuestionario");
+        Cuestionario.insertaPregunta();
+        Cuestionario.abrirArch("Cuestionario");
+        
         Cuestionario.listarRandom(Cuestionario.preguntas);
-        **/
+        for(int i =0; i<Cuestionario.preguntas10.size();i++)
+            cuestionario[i]=Cuestionario.preguntas10.get(i);
+        iniciarTest();
     }
 
     /**
@@ -68,6 +68,7 @@ public class frmQuiz extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        respuestasGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -75,15 +76,15 @@ public class frmQuiz extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textPregunta = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        r1 = new javax.swing.JRadioButton();
+        r2 = new javax.swing.JRadioButton();
+        r3 = new javax.swing.JRadioButton();
+        r4 = new javax.swing.JRadioButton();
+        siguiente = new javax.swing.JButton();
+        finalizar = new javax.swing.JButton();
+        anterior = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Blogger Sans Medium", 1, 60)); // NOI18N
@@ -142,28 +143,33 @@ public class frmQuiz extends javax.swing.JFrame {
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textPregunta.setColumns(20);
+        textPregunta.setRows(5);
+        jScrollPane1.setViewportView(textPregunta);
 
         jLabel3.setText("Pregunta ");
 
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        r1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                r1ActionPerformed(evt);
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/discreetlearning/newpackage/Siguientebutton.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        siguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/discreetlearning/newpackage/Siguientebutton.png"))); // NOI18N
+        siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                siguienteActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/discreetlearning/newpackage/Finalizarbutton.png"))); // NOI18N
+        finalizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/discreetlearning/newpackage/Finalizarbutton.png"))); // NOI18N
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/discreetlearning/newpackage/Anteriorbutton.png"))); // NOI18N
+        anterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/discreetlearning/newpackage/Anteriorbutton.png"))); // NOI18N
+        anterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                anteriorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -178,19 +184,19 @@ public class frmQuiz extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(89, 89, 89)
-                                .addComponent(jButton3)
+                                .addComponent(anterior)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)
+                                .addComponent(siguiente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)))
+                                .addComponent(finalizar)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton4)
+                            .addComponent(r1)
+                            .addComponent(r2)
+                            .addComponent(r3)
+                            .addComponent(r4)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(24, 24, 24))))
         );
@@ -202,18 +208,18 @@ public class frmQuiz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton1)
+                .addComponent(r1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(r2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton3)
+                .addComponent(r3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton4)
+                .addComponent(r4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(anterior)
+                    .addComponent(siguiente)
+                    .addComponent(finalizar))
                 .addGap(33, 33, 33))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,11 +263,11 @@ public class frmQuiz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void r1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_r1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
         // TODO add your handling code here:
         if(!(anterior.isEnabled())){
             anterior.setEnabled(true);
@@ -270,11 +276,12 @@ public class frmQuiz extends javax.swing.JFrame {
         
         if(contP>=9){
             siguiente.setEnabled(false);
+            
         }
         
         contP++;
         imprimirPregunta();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_siguienteActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -283,6 +290,21 @@ public class frmQuiz extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
+        if(!(siguiente.isEnabled())){
+            siguiente.setEnabled(true);
+            contP--;
+        }
+        
+        if(contP<=0){
+            anterior.setEnabled(false);
+            //contP=0;
+        }
+        
+        contP--;
+        imprimirPregunta();
+    }//GEN-LAST:event_anteriorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,15 +337,48 @@ public class frmQuiz extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmQuiz().setVisible(true);
+                new frmQuiz("").setVisible(true);
             }
         });
     }
+    
+    private void imprimirPregunta(){
+        //numPregunta.setText("Pregunta "+(contP+1));
+        respuestasGroup.clearSelection();
+        textPregunta.setText(cuestionario[contP].question);
+        r1.setText("a) "+cuestionario[contP].answer[0]);
+        r2.setText("b) "+cuestionario[contP].answer[1]);
+        r3.setText("c) "+cuestionario[contP].answer[2]);
+        r4.setText("d) "+cuestionario[contP].answer[3]);
+    }
+    
+    private void iniciarTest(){
+        contP=0;
+        start = true;
+        
+       //areaPreguntas.setVisible(true);
+       //areaEstado.setVisible(false);
+       //areaHistorial.setVisible(false);
+        //numPregunta.setText("Pregunta "+contP);
+        respuestasGroup.clearSelection();
+        textPregunta.setText("");
+        r1.setText("a) ");
+        r2.setText("b) ");
+        r3.setText("c) ");
+        r4.setText("d) ");
+        
+        
+        
+        
+        imprimirPregunta();
+        siguiente.setEnabled(start);
+        anterior.setEnabled(start);
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton anterior;
+    private javax.swing.JButton finalizar;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -333,11 +388,13 @@ public class frmQuiz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JRadioButton r1;
+    private javax.swing.JRadioButton r2;
+    private javax.swing.JRadioButton r3;
+    private javax.swing.JRadioButton r4;
+    private javax.swing.ButtonGroup respuestasGroup;
+    private javax.swing.JButton siguiente;
+    private javax.swing.JTextArea textPregunta;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Dlearning {
     public static String action;
+    
     public static String dlv(){
          try{
              //This function excecute DLV and the planning
@@ -58,6 +59,9 @@ public class Dlearning {
     public static void Switch(){
         //Esta funcion va a ser la que va a leer el plan y va a elegir la opcion
         //Para hacer la accion necesaria
+        
+        
+        
     }
     
     public static void main(String[] args) {
