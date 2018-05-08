@@ -5,6 +5,10 @@
  */
 package discreetlearning;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 /**
@@ -56,12 +60,30 @@ public class Dlearning {
         return action;
     } 
     
-    public static void Switch(){
-        //Esta funcion va a ser la que va a leer el plan y va a elegir la opcion
-        //Para hacer la accion necesaria
-        
-        
-        
+    public static void updatePlan(String cond, boolean band){
+        //Hacer funcion para modificar dlearninginit sin cond
+        String temp = "", br;
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearninginit.plan"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearninginit.plan"));
+            
+            while((br = reader.readLine()) != null){
+                temp = temp + br;
+            }
+            //Cambia los estados iniciales de dlv, si esta negado lo hace positivo y viceversa
+            if(temp.contains(cond)){
+                if(band == true){
+                    temp.replace("-" + cond, cond);
+                }
+                
+                else{
+                    temp.replace(cond, cond + "-");
+                }
+            }
+            
+        }catch(Exception w){
+            w.printStackTrace();
+        }
     }
     
     public static void main(String[] args) {

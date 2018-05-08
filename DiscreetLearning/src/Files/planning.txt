@@ -1,37 +1,5 @@
-DLV [build BEN/Dec 17 2012   gcc 4.2.1 (Apple Inc. build 5666) (dot 3)]
+DLV [build BEN/Dec 16 2012   gcc 4.6.1]
 
-STATE 0: -esta_en_asesorias, necesita_asesorias(primero), -sabe_subtema(primero), -sabe_subtema(segundo), -sabe_subtema(tercero), -subtema_ensenado(primero), -subtema_ensenado(segundo), -subtema_ensenado(tercero)
-ACTIONS: ensenar_subtema(primero)
-STATE 1: necesita_asesorias(primero), subtema_ensenado(primero)
-ACTIONS: ir_asesorias(primero)
-STATE 2: necesita_asesorias(primero), subtema_ensenado(primero), esta_en_asesorias
-ACTIONS: salir_asesorias
-STATE 3: -necesita_asesorias(primero), subtema_ensenado(primero), -esta_en_asesorias, -necesita_asesorias(segundo), -necesita_asesorias(tercero)
-ACTIONS: aplicar_quiz(primero)
-STATE 4: subtema_ensenado(primero), quiz_aplicado(primero)
-ACTIONS: aprender_subtema(primero)
-STATE 5: subtema_ensenado(primero), sabe_subtema(primero), quiz_aplicado(primero)
-ACTIONS: ensenar_subtema(segundo)
-STATE 6: subtema_ensenado(primero), sabe_subtema(primero), subtema_ensenado(segundo), quiz_aplicado(primero)
-ACTIONS: aplicar_quiz(segundo)
-STATE 7: subtema_ensenado(primero), sabe_subtema(primero), subtema_ensenado(segundo), quiz_aplicado(primero), quiz_aplicado(segundo)
-ACTIONS: aprender_subtema(segundo)
-STATE 8: subtema_ensenado(primero), sabe_subtema(primero), subtema_ensenado(segundo), sabe_subtema(segundo), quiz_aplicado(primero), quiz_aplicado(segundo)
-ACTIONS: ensenar_subtema(tercero)
-STATE 9: subtema_ensenado(primero), sabe_subtema(primero), subtema_ensenado(segundo), sabe_subtema(segundo), subtema_ensenado(tercero), quiz_aplicado(primero), quiz_aplicado(segundo)
-ACTIONS: aplicar_quiz(tercero)
-STATE 10: subtema_ensenado(primero), sabe_subtema(primero), subtema_ensenado(segundo), sabe_subtema(segundo), subtema_ensenado(tercero), quiz_aplicado(primero), quiz_aplicado(segundo), quiz_aplicado(tercero)
-ACTIONS: aprender_subtema(tercero)
-STATE 11: subtema_ensenado(primero), sabe_subtema(primero), subtema_ensenado(segundo), sabe_subtema(segundo), subtema_ensenado(tercero), sabe_subtema(tercero), quiz_aplicado(primero), quiz_aplicado(segundo), quiz_aplicado(tercero)
-ACTIONS: (no action)
-STATE 12: subtema_ensenado(primero), sabe_subtema(primero), subtema_ensenado(segundo), sabe_subtema(segundo), subtema_ensenado(tercero), sabe_subtema(tercero), quiz_aplicado(primero), quiz_aplicado(segundo), quiz_aplicado(tercero)
-ACTIONS: (no action)
-STATE 13: subtema_ensenado(primero), sabe_subtema(primero), subtema_ensenado(segundo), sabe_subtema(segundo), subtema_ensenado(tercero), sabe_subtema(tercero), quiz_aplicado(primero), quiz_aplicado(segundo), quiz_aplicado(tercero)
-ACTIONS: (no action)
-STATE 14: subtema_ensenado(primero), sabe_subtema(primero), subtema_ensenado(segundo), sabe_subtema(segundo), subtema_ensenado(tercero), sabe_subtema(tercero), quiz_aplicado(primero), quiz_aplicado(segundo), quiz_aplicado(tercero)
-ACTIONS: (no action)
-STATE 15: subtema_ensenado(primero), subtema_ensenado(segundo), subtema_ensenado(tercero), quiz_aplicado(primero), quiz_aplicado(segundo), quiz_aplicado(tercero), sabe_subtema(primero), sabe_subtema(segundo), sabe_subtema(tercero)
-PLAN: ensenar_subtema(primero); ir_asesorias(primero); salir_asesorias; aplicar_quiz(primero); aprender_subtema(primero); ensenar_subtema(segundo); aplicar_quiz(segundo); aprender_subtema(segundo); ensenar_subtema(tercero); aplicar_quiz(tercero); aprender_subtema(tercero); (no action); (no action); (no action); (no action)
-
-Check whether that plan is secure (y/n)? 
-Search for other plans (y/n)? 
+/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/DLearning/dlearning.dl: line 0: can't open input.
+Warning: No plan length given. Plan length defaults to zero.
+No goal query has been specified.

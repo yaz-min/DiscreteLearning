@@ -54,13 +54,13 @@ public class Builder {
     }
     public static String plan()throws IOException {
       //Mau
-        //ProcessBuilder builder = new ProcessBuilder("/Downloads/dlv.i386-apple-darwin.bin", "-FP", "/DLearning/dlearning.plan", "/DLearning/dlearninginit.plan", "/DLearning/dlearning.dl");
+        ProcessBuilder builder = new ProcessBuilder("/home/mau/Downloads/dlv.i386-linux-elf-static.bin", "-FP", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearning.plan", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearninginit.plan", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/DLearning/dlearning.dl");
         //Noe
         //ProcessBuilder builder = new ProcessBuilder("/src/Dlv/dlv.bin", "-FP", "/src/Dlv/dlearning.plan", "/src/Dlv/dlearninginit.plan", "/src/Dlv/dlearning.dl");
-        ProcessBuilder builder = new ProcessBuilder("/Users/noe/Documents/Developing/dlv/dlv.bin", "-FP", 
-                                                    "/Users/noe/Documents/Developing/DiscreteLearning/dlearning.plan", 
-                                                    "/Users/noe/Documents/Developing/DiscreteLearning/dlearninginit.plan", 
-                                                    "/Users/noe/Documents/Developing/DiscreteLearning/dlearning.dl");
+        //ProcessBuilder builder = new ProcessBuilder("/Users/noe/Documents/Developing/dlv/dlv.bin", "-FP", 
+        //                                            "/Users/noe/Documents/Developing/DiscreteLearning/dlearning.plan", 
+        //                                            "/Users/noe/Documents/Developing/DiscreteLearning/dlearninginit.plan", 
+        //                                            "/Users/noe/Documents/Developing/DiscreteLearning/dlearning.dl");
         /*ProcessBuilder builder = new ProcessBuilder("/Users/noe/Documents/Developing/dlv/dlv.bin", "-FP", 
                                                     "/src/dlv/dlearning.plan", 
                                                     "/src/dlv/dlearninginit.plan", 

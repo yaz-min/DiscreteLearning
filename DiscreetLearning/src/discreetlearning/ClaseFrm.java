@@ -5,6 +5,10 @@
  */
 package discreetlearning;
 
+import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ListIterator;
 /**
  *
  * @author Camila
@@ -14,10 +18,38 @@ public class ClaseFrm extends javax.swing.JFrame {
     /**
      * Creates new form DLSessionFrame
      */
+    String status, line, change;
+    List<String> content;
+    ListIterator<String> lit;
+    int cont;
+    boolean band = false;
+    
     public ClaseFrm() {
         initComponents();
+        jTextArea1.setLineWrap(true);
+        cont = 0;
+        status = Dlearning.dlv();
+        Step();
     }
 
+    public void Step(){
+        //Aqui se van a escoger los archivos dependiendo del subtema
+        try{
+            switch(status){
+                case "ensenar_subtema(primero);": content = Files.readAllLines(Paths.get("src/Files/Placeholder.txt"));
+                                                  lit = content.listIterator();
+                                                  jTextArea1.setText(content.get(cont));
+                                                  break;
+                                                  
+                case "ensenar_subtema(segundo);": break;
+                case "ensenar_subtema(tercero);": break;
+                default: System.out.println("No hay subtema");
+                         break;
+            }
+        }catch(Exception e){
+            e.printStackTrace();        
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -195,6 +227,24 @@ public class ClaseFrm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if(lit.hasNext() == true){
+            jTextArea1.setText(lit.next());
+        }
+        else{
+            //Actualizar el plan sin la accion ya realizada
+            change = "subtema_ensenado(S)";
+            band = true;
+            Dlearning.updatePlan(change, band);
+            status = Dlearning.dlv();
+            
+            if(status.startsWith("aplicar_quiz")){
+                //Falta lanzar popup de quiz
+                QuizFrm quiz_subt = new QuizFrm();
+                quiz_subt.setVisible(true);
+                this.setVisible(false);
+            }
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
