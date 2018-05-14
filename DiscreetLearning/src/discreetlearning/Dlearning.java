@@ -60,32 +60,6 @@ public class Dlearning {
         return action;
     } 
     
-    public static void updatePlan(String cond, boolean band){
-        //Hacer funcion para modificar dlearninginit sin cond
-        String temp = "", br;
-        try{
-            BufferedReader reader = new BufferedReader(new FileReader("/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearninginit.plan"));
-            BufferedWriter writer = new BufferedWriter(new FileWriter("/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearninginit.plan"));
-            
-            while((br = reader.readLine()) != null){
-                temp = temp + br;
-            }
-            //Cambia los estados iniciales de dlv, si esta negado lo hace positivo y viceversa
-            if(temp.contains(cond)){
-                if(band == true){
-                    temp.replace("-" + cond, cond);
-                }
-                
-                else{
-                    temp.replace(cond, cond + "-");
-                }
-            }
-            
-        }catch(Exception w){
-            w.printStackTrace();
-        }
-    }
-    
     public static void main(String[] args) {
         Subject s1 = new Subject("Basics");
         

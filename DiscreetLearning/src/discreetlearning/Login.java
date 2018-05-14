@@ -240,8 +240,9 @@ public class Login extends javax.swing.JFrame {
                 
                 
                 //frmTest test = new frmTest(user);
-                
-                //test.setVisible(true);
+                TemaSelect tema = new TemaSelect(user);
+                tema.setVisible(true);
+                this.setVisible(false);
                 //this.dispose();
                 
                 

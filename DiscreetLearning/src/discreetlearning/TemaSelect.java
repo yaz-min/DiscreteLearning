@@ -14,8 +14,11 @@ public class TemaSelect extends javax.swing.JFrame {
     /**
      * Creates new form DLSessionFrame
      */    
-    public TemaSelect() {
+    public static String user;
+    
+    public TemaSelect(String user) {
         initComponents();
+        this.user = user;
     }
 
     /**
@@ -130,6 +133,11 @@ public class TemaSelect extends javax.swing.JFrame {
         });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/discreetlearning/newpackage/Iniciar3.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/discreetlearning/newpackage/Iniciar4.png"))); // NOI18N
 
@@ -225,18 +233,21 @@ public class TemaSelect extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        ClaseFrm a= new ClaseFrm(user);
+            a.setVisible(true);
+            this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-            ClaseFrm a= new ClaseFrm();
+            ClaseFrm a= new ClaseFrm(user);
             a.setVisible(true);
             this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        ApuntesFrm abrir= new ApuntesFrm();
+        ApuntesFrm abrir= new ApuntesFrm(user);
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -247,10 +258,14 @@ public class TemaSelect extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        TemaSelect a= new TemaSelect();
+        TemaSelect a= new TemaSelect(user);
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,7 +300,7 @@ public class TemaSelect extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TemaSelect().setVisible(true);
+                new TemaSelect(user).setVisible(true);
             }
         });
     }

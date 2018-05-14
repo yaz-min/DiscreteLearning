@@ -54,7 +54,7 @@ public class Builder {
     }
     public static String plan()throws IOException {
       //Mau
-        ProcessBuilder builder = new ProcessBuilder("/home/mau/Downloads/dlv.i386-linux-elf-static.bin", "-FP", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearning.plan", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/dlearninginit.plan", "/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/DLearning/dlearning.dl");
+        ProcessBuilder builder = new ProcessBuilder("/Users/pamelagarcia/Downloads/dlv.i386-apple-darwin.bin", "-FP", "/Users/pamelagarcia/DiscreteLearning/dlearning.plan", "/Users/pamelagarcia/DiscreteLearning/dlearninginit.plan", "/Users/pamelagarcia/DiscreteLearning/dlearning.dl", "-planlength=12");
         //Noe
         //ProcessBuilder builder = new ProcessBuilder("/src/Dlv/dlv.bin", "-FP", "/src/Dlv/dlearning.plan", "/src/Dlv/dlearninginit.plan", "/src/Dlv/dlearning.dl");
         //ProcessBuilder builder = new ProcessBuilder("/Users/noe/Documents/Developing/dlv/dlv.bin", "-FP", 

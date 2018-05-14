@@ -1,5 +1,31 @@
-DLV [build BEN/Dec 16 2012   gcc 4.6.1]
+DLV [build BEN/Dec 17 2012   gcc 4.2.1 (Apple Inc. build 5666) (dot 3)]
 
-/home/mau/Documents/School/Lenguajes Formales y Autómatas/DiscreteLearning/DLearning/dlearning.dl: line 0: can't open input.
-Warning: No plan length given. Plan length defaults to zero.
-No goal query has been specified.
+STATE 0: -esta_en_asesorias, -necesita_asesorias(primero), -sabe_subtema(primero), -subtema_ensenado(primero)
+ACTIONS: ensenar_subtema(primero)
+STATE 1: subtema_ensenado(primero)
+ACTIONS: aplicar_quiz(primero)
+STATE 2: subtema_ensenado(primero), quiz_aplicado(primero)
+ACTIONS: aprender_subtema(primero)
+STATE 3: subtema_ensenado(primero), sabe_subtema(primero), quiz_aplicado(primero)
+ACTIONS: (no action)
+STATE 4: subtema_ensenado(primero), sabe_subtema(primero), quiz_aplicado(primero)
+ACTIONS: (no action)
+STATE 5: subtema_ensenado(primero), sabe_subtema(primero), quiz_aplicado(primero)
+ACTIONS: (no action)
+STATE 6: subtema_ensenado(primero), sabe_subtema(primero), quiz_aplicado(primero)
+ACTIONS: (no action)
+STATE 7: subtema_ensenado(primero), sabe_subtema(primero), quiz_aplicado(primero)
+ACTIONS: (no action)
+STATE 8: subtema_ensenado(primero), sabe_subtema(primero), quiz_aplicado(primero)
+ACTIONS: (no action)
+STATE 9: subtema_ensenado(primero), sabe_subtema(primero), quiz_aplicado(primero)
+ACTIONS: (no action)
+STATE 10: subtema_ensenado(primero), sabe_subtema(primero), quiz_aplicado(primero)
+ACTIONS: (no action)
+STATE 11: subtema_ensenado(primero), sabe_subtema(primero), quiz_aplicado(primero)
+ACTIONS: (no action)
+STATE 12: subtema_ensenado(primero), quiz_aplicado(primero), sabe_subtema(primero)
+PLAN: ensenar_subtema(primero); aplicar_quiz(primero); aprender_subtema(primero); (no action); (no action); (no action); (no action); (no action); (no action); (no action); (no action); (no action)
+
+Check whether that plan is secure (y/n)? 
+Search for other plans (y/n)? 
